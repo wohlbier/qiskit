@@ -9,6 +9,10 @@ Stage: build
 
 %environment
     export PATH=/opt/miniconda3/bin:$PATH
+    export PATH=/usr/local/cuda-10.2/bin:/usr/local/cuda-10.2/nsight-compute-2019.5.0${PATH:+:${PATH}}
+    export LD_LIBRARY_PATH=/usr/local/cuda-10.2/lib64\
+                         ${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+
 
 %post
     echo "Hello from inside the container"
@@ -33,7 +37,10 @@ Stage: build
 
     # cuda
     apt-get install -y libxml2
+    apt-get install -y linux-headers-$(uname -r)
     bash ./cuda_10.2.89_440.33.01_linux.run --silent --toolkit
+    apt-get install -y nvidia-opencl-dev
+    cp /etc/OpenCL/vendors/nvidia.icd /opt/miniconda3/etc/OpenCL/vendors/
 
 %runscript
     echo "Container was created $NOW"
