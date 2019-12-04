@@ -15,17 +15,19 @@ export https_proxy=http://proxy.sei.cmu.edu:8080/
 singularity remote login --tokenfile sylabs-token.txt
 
 # make a sandbox from a Singularity def
-sudo singularity build test.sif test.def
-singularity run test.sif
+sudo singularity build --sandbox qiskit qiskit.def
+# make the sif from the directory
+sudo singularity build qiskit.sif qiskit
+singularity run qiskit.sif
 ```
 
 # Running containers
 
 ```
-scp test.sif remote.host:
+scp qiskit.sif remote.host:
 projects
 # interactively
 interact -p GPU-AI --gres=gpu:volta16:1
-singularity shell --nv test.sif
-singularity exec --nv test.sif bash_script.sh
+singularity shell --nv qiskit.sif
+singularity exec --nv qiskit.sif bash_script.sh
 ```

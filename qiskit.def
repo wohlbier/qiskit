@@ -1,0 +1,44 @@
+Bootstrap: library
+From: ubuntu:18.04
+Stage: build
+
+%files
+    Miniconda3-latest-Linux-x86_64.sh /opt
+    #Anaconda3-2019.10-Linux-x86_64.sh /opt
+    cuda_10.2.89_440.33.01_linux.run /opt
+
+%post
+    echo "Hello from inside the container"
+    apt-get update && apt-get upgrade
+    apt-get install -y gcc git
+    cd /opt
+
+    # conda
+    bash ./Miniconda3-latest-Linux-x86_64.sh -b -p /opt/miniconda3
+    # Anaconda does not download for some reason
+    #bash ./Anaconda3-2019.10-Linux-x86_64.sh -b -p /opt/anaconda3
+    export PATH=/opt/miniconda3/bin:$PATH
+    conda update conda
+    conda install -y pyscf -c pyscf
+    conda install -y ocl-icd-system -c conda-forge
+    conda install -y pyopencl -c conda-forge
+    git clone https://github.com/qiskit-community/qiskit-qcgpu-provider.git
+    cd qiskit-qcgpu-provider
+    python setup.py install
+    cd /opt
+
+    # cuda
+    apt-get install -y libxml2
+    bash ./cuda_10.2.89_440.33.01_linux.run --silent --toolkit
+
+%runscript
+    echo "Container was created $NOW"
+    echo "Arguments received: $*"
+    exec echo "$@"
+
+%help
+    This container was built with
+    sudo singularity build test.sif test.def
+    Useful commands:
+    singularity run-help test.sif
+    singularity run test.sif arg1 arg2
