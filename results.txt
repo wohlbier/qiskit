@@ -1,0 +1,64 @@
+Singularity> python3 benchmark.py --samples 15  --qubits 20 --single True
+Progress: [###############################################   ] 95.0%
+FUNCTION: bench_qcgpu Used 5 times
+    MEDIAN 1.43792724609375
+    MEAN   1.437610673904419
+    STDEV  0.0035029505754044783
+FUNCTION: bench_qiskit Used 10 times
+    MEDIAN 4.87024462223053
+    MEAN   4.867893886566162
+    STDEV  0.08862987056515856
+
+Singularity> python3 benchmark.py --samples 15  --qubits 21 --single True
+Progress: [###############################################   ] 95.0%
+FUNCTION: bench_qcgpu Used 6 times
+    MEDIAN 2.5283846855163574
+    MEAN   2.5369131565093994
+    STDEV  0.026263841326820424
+FUNCTION: bench_qiskit Used 9 times
+    MEDIAN 10.438646793365479
+    MEAN   10.411076784133911
+    STDEV  0.1506390245340596
+
+Singularity> python3 benchmark.py --samples 15  --qubits 22 --single True
+Progress: [###############################################   ] 95.0%
+FUNCTION: bench_qcgpu Used 6 times
+    MEDIAN 4.2573747634887695
+    MEAN   4.256118814150493
+    STDEV  0.022516814719424537
+FUNCTION: bench_qiskit Used 9 times
+    MEDIAN 20.287221670150757
+    MEAN   20.299022171232437
+    STDEV  0.2950348732660174
+
+Singularity> python3 benchmark.py --samples 15  --qubits 23 --single True
+Progress: [###############################################   ] 95.0%
+FUNCTION: bench_qcgpu Used 6 times
+    MEDIAN 7.693128347396851
+    MEAN   7.6851234038670855
+    STDEV  0.039260311540843355
+FUNCTION: bench_qiskit Used 9 times
+    MEDIAN 40.631332874298096
+    MEAN   40.710814476013184
+
+Singularity> python3 benchmark.py --samples 15  --qubits 24 --single True
+Progress: [###############################################   ] 95.0%
+FUNCTION: bench_qcgpu Used 8 times
+    MEDIAN 14.377711653709412
+    MEAN   14.37945094704628
+    STDEV  0.06328492321509283
+FUNCTION: bench_qiskit Used 7 times
+    MEDIAN 78.81575274467468
+    MEAN   79.07221228735787
+    STDEV  0.8235275667486034
+
+Singularity> python3 benchmark.py --samples 15  --qubits 25 --single True
+Progress: [###############################################   ] 95.0%
+FUNCTION: bench_qcgpu Used 7 times
+	MEDIAN 27.559080839157104
+	MEAN   27.57132659639631
+	STDEV  0.18027515674872563
+FUNCTION: bench_qiskit Used 8 times
+	MEDIAN 160.93808710575104
+	MEAN   160.9334419965744
+	STDEV  1.7471046394179184
