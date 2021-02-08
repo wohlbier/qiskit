@@ -6,8 +6,8 @@ jgwohlbier@jgwohlbier-VirtualBox:~/devel/lolcow$ cat /etc/environment
 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 
 #jgw
-export http_proxy=http://proxy.sei.cmu.edu:8080/
-export https_proxy=http://proxy.sei.cmu.edu:8080/
+export http_proxy=${http_proxy}
+export https_proxy=${https_proxy}
 ```
 
 ```
